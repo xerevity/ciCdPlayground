@@ -1,6 +1,6 @@
 import App from './App.svelte';
 
-const app = new App({
+export const app = new App({
 	target: document.body,
 	props: {
 		// What's your name?

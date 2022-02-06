@@ -11,7 +11,7 @@
 	<h1>Hello, my name is {name}!</h1>
 
 	<h2>I associate with CI/CD:</h2>
-	<List content={associations} class="list"></List>
+	<List content={associations}></List>
 
 	<h2>In my project we use:</h2>
 	<List content={tools}></List>

@@ -7,7 +7,8 @@
     "dev": "rollup -c -w",
     "start": "sirv public --no-clear",
     "test": "jest src",
-    "test:watch": "yest test -- --watch"
+    "test:watch": "yest test -- --watch",
+    "test:e2e": "yarn start& wait-on http://localhost:8080; cypress run"
   },
   "jest": {
     "transform": {
@@ -29,16 +30,16 @@
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/svelte": "^3.0.3",
     "babel-jest": "^27.4.6",
+    "cypress": "^9.4.1",
     "jest": "^27.4.7",
     "rollup": "^2.3.4",
     "rollup-plugin-css-only": "^3.1.0",
     "rollup-plugin-livereload": "^2.0.0",
     "rollup-plugin-svelte": "^7.0.0",
     "rollup-plugin-terser": "^7.0.0",
+    "sirv-cli": "^2.0.0",
     "svelte": "^3.0.0",
-    "svelte-jester": "^2.1.5"
-  },
-  "dependencies": {
-    "sirv-cli": "^2.0.0"
+    "svelte-jester": "^2.1.5",
+    "wait-on": "^6.0.0"
   }
 }
