@@ -21,10 +21,15 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      # Runs a single command using the runners shell
-      - name: build
+      - name: Install
         run: yarn
+      
+      - name: Build
+        run: yarn build
 
-      # Runs a set of commands using the runners shell
-      - name: unit tests
+      - name: Unit Tests
         run: yarn test
+
+      - name: E2E Tests
+        run: yarn test:e2e
+      

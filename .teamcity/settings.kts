@@ -40,12 +40,20 @@ object Build : BuildType({
 
     steps {
         script {
-            name = "install"
+            name = "Install"
             scriptContent = "yarn"
         }
         script {
-            name = "test"
+            name = "Build"
+            scriptContent = "yarn build"
+        }
+        script {
+            name = "Unit Tests"
             scriptContent = "yarn test"
+        }
+        script {
+            name = "E2E Tests"
+            scriptContent = "yarn test:e2e"
         }
     }
 
