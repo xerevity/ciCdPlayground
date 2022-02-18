@@ -4,13 +4,15 @@
 
 <div>
 {#if Array.isArray(content)}
-	<p>
+	<p data-testid="listContentParagraph">
 	{#each content as line}
 		<li>{line}</li>
 	{/each}
 	</p>
 {:else}
-	<p>{content}</p>
+	<p data-testid="singleContentParagraph">
+		{content}
+	</p>
 {/if}
 </div>
 
