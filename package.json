@@ -7,7 +7,6 @@
     "dev": "rollup -c -w",
     "start": "sirv public --no-clear",
     "test": "jest src",
-    "test:watch": "yest test -- --watch",
     "test:e2e": "yarn start& wait-on http://localhost:8080; cypress run"
   },
   "jest": {
