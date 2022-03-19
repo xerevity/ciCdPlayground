@@ -1,6 +1,6 @@
 import App from './App.svelte';
 
-export const app = new App({
+new App({
 	target: document.body,
 	props: {
 		// What's your name?
@@ -16,7 +16,7 @@ export const app = new App({
 		tools: 'Jenkins, maybe?',
 		// What do you want to learn in this workshop? 
 		expectations: [
-			'to know what you are talking about'
+			'what you are talking about'
 		],
 		// What do you like to do when you're not coding?
 		hobbies: [
@@ -26,5 +26,3 @@ export const app = new App({
 		]
 	}
 });
-
-export default app;
