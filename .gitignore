@@ -1,4 +1,7 @@
-/node_modules/
+**/node_modules/
+**/cdk.out/
+/infrastructure/**/*.js
+/infrastructure/**/*.d.ts
 /public/build/
 /cypress/videos
 

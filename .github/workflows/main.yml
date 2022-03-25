@@ -40,5 +40,12 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: eu-central-1
         
+      - name: Provision
+        working-directory: ./infrastructure
+        run: |
+          yarn
+          yarn build
+          yarn cdk deploy --require-approval never --context instanceName=${GITHUB_REF_NAME}
+
       - name: Deploy
-        run: aws s3 cp ./public s3://tng-curriculum-cicd-playground --recursive
+        run: aws s3 cp ./public s3://cicd-workshop-playground-${GITHUB_REF_NAME} --recursive
