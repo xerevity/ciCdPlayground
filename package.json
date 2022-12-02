@@ -5,9 +5,9 @@
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
-    "start": "sirv public --no-clear",
+    "start": "sirv public --port 8081 --no-clear",
     "test": "jest src",
-    "test:e2e": "yarn start& wait-on http://localhost:8080; cypress run"
+    "test:e2e": "yarn start& wait-on http://localhost:8081; cypress run"
   },
   "jest": {
     "transform": {
