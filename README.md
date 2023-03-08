@@ -7,7 +7,7 @@ Yarn is recommended, but corresponding npm commands should work, too.
 
 To install dependencies run `yarn`
 
-Serve at localhost:8080 with `yarn dev`
+Serve at localhost:8081 with `yarn dev`
 
 Run tests with `yarn test` and `yarn test:e2e`
 
@@ -23,3 +23,8 @@ Running out of the box on, well, Github, see `.github`.
 ## TeamCity WIP
 Requires a TeamCity server, e.g. https://hub.docker.com/r/jetbrains/teamcity-server.
 Due to issues with TeamCity's docker wrapper in some dockerised agents, an agent with locally installed yarn is required. See `.teamcity`.
+## Jenkins WIP
+There is a simple Jenkinsfile present. 
+Currently not working:
+* e2e tests due to cypress dependencies
+* deployment due to not configured AWS secrets
