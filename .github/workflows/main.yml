@@ -4,7 +4,7 @@ name: CI
 permissions:
   id-token: write
   contents: read
-  
+
 # Controls when the workflow will run
 on:
   push:
@@ -40,7 +40,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v2
         with:
           role-to-assume: arn:aws:iam::530798195059:role/tng-curriculum-cicd-playground-deployment-test-role
-          aws-region: us-east-1
+          aws-region: eu-central-1
           audience: sts.amazonaws.com
           role-session-name: cicd-playground-deployment
 
