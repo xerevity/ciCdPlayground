@@ -34,7 +34,7 @@ jobs:
         run: yarn test:e2e
       
       - name: Configure AWS access
-        uses: aws-actions/configure-aws-credentials@v1
+        uses: aws-actions/configure-aws-credentials@v2
         with:
           role-to-assume: arn:aws:iam::530798195059:role/tng-curriculum-cicd-playground-deployment-test-role
           aws-region: us-east-1
