@@ -78,6 +78,7 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: build
+          path: public
 
       - name: E2E Tests
         run: yarn test:e2e
