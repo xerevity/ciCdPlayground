@@ -40,10 +40,17 @@ jobs:
       - uses: dorny/test-reporter@v1
         if: success() || failure()
         with:
-          name: JEST Tests
-          path: 'reports/*.xml'
+          name: Unit Tests
+          path: 'reports/jest-*.xml'
           reporter: jest-junit
       
+      - uses: dorny/test-reporter@v1
+        if: success() || failure()
+        with:
+          name: E2E Tests
+          path: 'reports/cypress-*.xml'
+          reporter: jest-junit
+
       - name: Configure AWS access
         uses: aws-actions/configure-aws-credentials@v2
         with:

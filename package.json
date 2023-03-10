@@ -7,7 +7,7 @@
     "dev": "rollup -c -w",
     "start": "sirv public --port 8081 --no-clear",
     "test": "jest src --ci --reporters=default --reporters=jest-junit",
-    "test:e2e": "yarn start& wait-on http://localhost:8081; cypress run --reporter xunit --reporter-options output=reports/cypress-junit.xml"
+    "test:e2e": "yarn start& wait-on http://localhost:8081; cypress run --reporter junit --reporter-options mochaFile=reports/cypress-junit.xml"
   },
   "jest": {
     "transform": {
