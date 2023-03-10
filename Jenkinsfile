@@ -43,7 +43,7 @@ pipeline {
                 expression { return params.Deploy }
             }
             steps {
-                cd './infrastructure'
+                sh 'cd ./infrastructure'
                 sh """yarn
                      |yarn build
                      |yarn cdk deploy --require-approval never --context instanceName=${GITHUB_REF_NAME}""".stripMargin()
