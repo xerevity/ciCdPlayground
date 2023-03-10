@@ -33,21 +33,9 @@ pipeline {
                 sh 'yarn'
             }
         }
-        stage('Matrix') {
-            matrix {
-                axes {
-                    axis {
-                        name 'TEST_TYPE'
-                        values 'test', 'test:e2e'
-                    }
-                }
-                stages {
-                    stage('Testing') {
-                        steps {
-                            sh 'yarn ${TEST_TYPE}'
-                        }
-                    }
-                }
+        stage('test') {
+            steps {
+                sh 'yarn test'
             }
         }
         stage('deploy') {
