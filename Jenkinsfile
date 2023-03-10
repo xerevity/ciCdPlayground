@@ -47,7 +47,7 @@ pipeline {
                   dontSetBuildResultOnFailure: false, 
                   dontWaitForConcurrentBuildCompletion: false, 
                   entries: [[
-                      bucket: "cicd-ws-s3.playground.aws.tngtech.com/${env.BRANCH_NAME}", 
+                      bucket: "cicd-ws-s3.playground.aws.tngtech.com/${env.BRANCH_NAME}-${params.Version}", 
                       excludedFile: '', 
                       flatten: false, 
                       gzipFiles: false, 
