@@ -6,7 +6,7 @@
     "build": "rollup -c",
     "dev": "rollup -c -w",
     "start": "sirv public --port 8081 --no-clear",
-    "test": "jest src",
+    "test": "jest src --ci --reporters=default --reporters=jest-Junit",
     "test:e2e": "yarn start& wait-on http://localhost:8081; cypress run"
   },
   "jest": {
@@ -33,6 +33,7 @@
     "babel-jest": "^27.4.6",
     "cypress": "^9.5.0",
     "jest": "^27.4.7",
+    "jest-junit": "^15.0.0",
     "rollup": "^2.3.4",
     "rollup-plugin-css-only": "^3.1.0",
     "rollup-plugin-livereload": "^2.0.0",
@@ -42,5 +43,14 @@
     "svelte": "^3.0.0",
     "svelte-jester": "^2.1.5",
     "wait-on": "^6.0.0"
+  },
+  "jest-junit": {
+    "outputDirectory": "reports",
+    "outputName": "jest-junit.xml",
+    "ancestorSeparator": " › ",
+    "uniqueOutputName": "false",
+    "suiteNameTemplate": "{filepath}",
+    "classNameTemplate": "{classname}",
+    "titleTemplate": "{title}"
   }
 }
