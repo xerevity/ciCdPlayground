@@ -41,7 +41,7 @@ jobs:
         if: success() || failure()
         with:
           name: JEST Tests
-          path: 'reports/jest-*.xml'
+          path: 'reports/*.xml'
           reporter: jest-junit
       
       - name: Configure AWS access
