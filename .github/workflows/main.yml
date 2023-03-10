@@ -27,28 +27,24 @@ jobs:
 
       - name: Install
         run: yarn
-      
+
       - name: Build
         run: yarn build
 
+      - uses: actions/upload-artifact@v3
+        with:
+          name: build
+          path: public
+          retention-days: 1
+
       - name: Unit Tests
         run: yarn test
-
-      - name: E2E Tests
-        run: yarn test:e2e
 
       - uses: dorny/test-reporter@v1
         if: success() || failure()
         with:
           name: Unit Tests
           path: 'reports/jest-*.xml'
-          reporter: jest-junit
-      
-      - uses: dorny/test-reporter@v1
-        if: success() || failure()
-        with:
-          name: E2E Tests
-          path: 'reports/cypress-*.xml'
           reporter: jest-junit
 
       - name: Configure AWS access
@@ -68,3 +64,20 @@ jobs:
 
       - name: Deploy
         run: aws s3 cp ./public s3://cicd-workshop-playground-${GITHUB_REF_NAME} --recursive
+
+  e2e:
+    needs: test
+    steps:
+      - uses: actions/download-artifact@v3
+        with:
+          name: build
+
+      - name: E2E Tests
+        run: yarn test:e2e
+
+      - uses: dorny/test-reporter@v1
+        if: success() || failure()
+        with:
+          name: E2E Tests
+          path: 'reports/cypress-*.xml'
+          reporter: jest-junit
