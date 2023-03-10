@@ -46,7 +46,7 @@ pipeline {
                 sh 'cd ./infrastructure'
                 sh """yarn
                      |yarn build
-                     |yarn cdk deploy --require-approval never --context instanceName=${GITHUB_REF_NAME}""".stripMargin()
+                     |yarn cdk deploy --require-approval never --context instanceName=${env.BRANCH_NAME}""".stripMargin()
             }
         }
     }
