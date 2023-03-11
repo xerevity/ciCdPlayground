@@ -20,7 +20,11 @@
     ],
     "setupFilesAfterEnv": [
       "@testing-library/jest-dom/extend-expect"
-    ]
+    ],
+    "reporters": [ "default", "jest-junit" ]
+  },
+  "jest-junit": {
+    "outputDirectory": "public/."
   },
   "devDependencies": {
     "@babel/preset-env": "^7.16.11",
@@ -33,6 +37,7 @@
     "babel-jest": "^27.4.6",
     "cypress": "^9.5.0",
     "jest": "^27.4.7",
+    "jest-junit": "^15.0.0",
     "rollup": "^2.3.4",
     "rollup-plugin-css-only": "^3.1.0",
     "rollup-plugin-livereload": "^2.0.0",
