@@ -43,10 +43,27 @@ pipeline {
                 expression { return params.Deploy }
             }
             steps {
-                sh 'cd ./infrastructure'
-                sh """yarn
-                     |yarn build
-                     |yarn cdk deploy --require-approval never --context instanceName=${env.BRANCH_NAME}""".stripMargin()
+                s3Upload consoleLogLevel: 'INFO', 
+                  dontSetBuildResultOnFailure: false, 
+                  dontWaitForConcurrentBuildCompletion: false, 
+                  entries: [[
+                      bucket: "cicd-ws-s3.playground.aws.tngtech.com/${env.BRANCH_NAME}-${params.Version}", 
+                      excludedFile: '', 
+                      flatten: false, 
+                      gzipFiles: false, 
+                      keepForever: false, 
+                      managedArtifacts: false, 
+                      noUploadOnFailure: false, 
+                      selectedRegion: 'eu-central-1', 
+                      showDirectlyInBrowser: false, 
+                      sourceFile: 'public/**/*.*', 
+                      storageClass: 'STANDARD', 
+                      uploadFromSlave: false, 
+                      useServerSideEncryption: false
+                    ]], 
+                    pluginFailureResultConstraint: 'FAILURE', 
+                    profileName: 'role-based-access', 
+                    userMetadata: []
             }
         }
     }
