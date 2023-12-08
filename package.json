@@ -24,7 +24,13 @@
     "reporters": [ "default", "jest-junit" ]
   },
   "jest-junit": {
-    "outputDirectory": "public/."
+    "outputDirectory": "reports",
+    "outputName": "jest-junit.xml",
+    "ancestorSeparator": " › ",
+    "uniqueOutputName": "false",
+    "suiteNameTemplate": "{filepath}",
+    "classNameTemplate": "{classname}",
+    "titleTemplate": "{title}"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.16.11",
@@ -47,14 +53,5 @@
     "start-server-and-test": "^2.0.0",
     "svelte": "^3.0.0",
     "svelte-jester": "^2.1.5"
-  },
-  "jest-junit": {
-    "outputDirectory": "reports",
-    "outputName": "jest-junit.xml",
-    "ancestorSeparator": " › ",
-    "uniqueOutputName": "false",
-    "suiteNameTemplate": "{filepath}",
-    "classNameTemplate": "{classname}",
-    "titleTemplate": "{title}"
   }
 }
