@@ -21,7 +21,10 @@
     "setupFilesAfterEnv": [
       "@testing-library/jest-dom/extend-expect"
     ],
-    "reporters": [ "default", "jest-junit" ]
+    "reporters": [
+      "default",
+      "jest-junit"
+    ]
   },
   "jest-junit": {
     "outputDirectory": "reports",
