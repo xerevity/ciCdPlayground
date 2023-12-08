@@ -20,11 +20,14 @@ Requirements:
 # The tools
 ## Github Actions
 Running out of the box on, well, Github, see `.github`.
-## TeamCity WIP
+## Jenkins (WIP)
+There is a Jenkinsfile present. 
+Current status has to be checked.
+## Gitlab CI
+There is a `.gitlab-ci.yml` with working test stages. Deployment has to be checked.
+## TeamCity (POC)
 Requires a TeamCity server, e.g. https://hub.docker.com/r/jetbrains/teamcity-server.
-Due to issues with TeamCity's docker wrapper in some dockerised agents, an agent with locally installed yarn is required. See `.teamcity`.
-## Jenkins WIP
-There is a simple Jenkinsfile present. 
-Currently not working:
-* e2e tests due to cypress dependencies
-* deployment due to not configured AWS secrets
+Due to issues with TeamCity's docker wrapper in some dockerised agents, an agent with locally installed yarn is required. 
+The way TeamCity handles its docker containers make a docker in docker setup rather complicated, 
+so that support for this rather obscure CI/CD tool is probably not worth the effort.
+See `.teamcity` for a basic setup.
