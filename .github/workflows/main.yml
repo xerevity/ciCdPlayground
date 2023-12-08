@@ -69,7 +69,9 @@ jobs:
 
     strategy:
       matrix:
-        browser: [ chrome, firefox ]
+        # currently connetion to firefox can not be established, turn it of for now
+        # browser: [ chrome, firefox ]
+        browser: [ chrome ]
 
     steps:
       - uses: actions/checkout@v3
