@@ -4,5 +4,6 @@
 /infrastructure/bin/*.d.ts
 /public/build/
 /cypress/videos
+/reports
 
 .DS_Store
