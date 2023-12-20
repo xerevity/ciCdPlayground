@@ -38,6 +38,11 @@ pipeline {
                 sh 'yarn test'
             }
         }
+        stage('build') {
+            steps {
+                sh 'yarn build'
+            }
+        }
         stage('deploy') {
             when {
                 expression { return params.Deploy }
