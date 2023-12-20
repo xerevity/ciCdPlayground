@@ -12,10 +12,11 @@ Serve at localhost:8081 with `yarn dev`
 Run tests with `yarn test` and `yarn test:e2e`
 
 ## Provisioning
-The `infrastructure` directory contains a CDK app that can provision a S3 bucket from which the playground can be served. Typically a deployment job would first provision a bucket via CDK and afterwards deploy to that bucket via AWS CLI.
-Requirements:
- * IAM role with appropriate permission, see `policy-for-deployment-role.json`
- * credentials for this role provided as secrets in the CI/CD pipeline
+In the workshop infrastructure we provision an S3 bucket 'cicd-workshop-playground' 
+and give the Jenkins instance write access to it. 
+Thus, the s3Upload plugin for Jenkins can deploy to the bucket.
+The playground app is then accessible at 
+https://cicd-workshop-playground.s3.amazonaws.com/$PATH_WORK_IN_PROGRESS/index.html
 
 # The tools
 ## Github Actions
