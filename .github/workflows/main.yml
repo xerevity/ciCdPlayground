@@ -118,12 +118,5 @@ jobs:
           audience: sts.amazonaws.com
           role-session-name: cicd-playground-deployment
 
-      - name: Provision
-        working-directory: ./infrastructure
-        run: |
-          yarn
-          yarn build
-          yarn cdk deploy --require-approval never --context instanceName=${GITHUB_REF_NAME}
-
       - name: Deploy
-        run: aws s3 cp ./public s3://cicd-workshop-playground-${GITHUB_REF_NAME} --recursive
+        run: aws s3 cp ./public s3://cicd-workshop-playground/${GITHUB_REPOSITORY_OWNER} --recursive

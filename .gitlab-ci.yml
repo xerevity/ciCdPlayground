@@ -51,20 +51,6 @@ IntegrationTest:
       - cypress/screenshots/**/*.png
     expire_in: 1 day
 
-Provision:
-  stage: deploy
-  before_script:
-    - echo "${CI_JOB_JWT_V2}" > /tmp/web_identity_token
-  variables:
-    AWS_WEB_IDENTITY_TOKEN_FILE: /tmp/web_identity_token
-    AWS_ROLE_ARN: ${ROLE_ARN}
-    AWS_REGION: eu-central-1
-  image: node:lts-alpine
-  script:
-    - cd infrastructure/
-    - yarn install --frozen-lockfile
-    - yarn cdk deploy --verbose --require-approval never --context instanceName=${CI_COMMIT_REF_NAME}
-
 Deploy:
   stage: deploy
   before_script:
@@ -83,5 +69,5 @@ Deploy:
     paths:
       - public/build
   script:
-    - aws s3 cp ./public s3://cicd-workshop-playground-${CI_COMMIT_REF_NAME} --recursive
+    - aws s3 cp ./public s3://cicd-workshop-playground-${CI_PROJECT_NAMESPACE} --recursive
     
