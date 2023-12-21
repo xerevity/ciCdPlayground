@@ -52,7 +52,7 @@ pipeline {
                   dontSetBuildResultOnFailure: false, 
                   dontWaitForConcurrentBuildCompletion: false, 
                   entries: [[
-                      bucket: "cicd-workshop-playground/${env.BRANCH_NAME}-${params.Version}", 
+                      bucket: "cicd-workshop-playground/${env.GIT_URL.split('/')[3]}-${params.Version}", 
                       excludedFile: '', 
                       flatten: false, 
                       gzipFiles: false, 
