@@ -8,15 +8,15 @@ permissions:
 
 # Controls when the workflow will run
 on:
-  push:
-
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
     inputs:
       deploy:
         description: 'Enable deployment'
         required: true
-        default: 'true'
+        default: true
+        type: boolean
+  push:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -101,7 +101,7 @@ jobs:
 
     needs: [ build, unit, e2e ]
 
-    if: github.event.deploy == 'true'
+    if: inputs.deploy == true
     steps:
       - uses: actions/checkout@v3
 
