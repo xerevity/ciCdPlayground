@@ -15,8 +15,8 @@ Run tests with `yarn test` and `yarn test:e2e`
 In the workshop infrastructure we provision a S3 bucket 'cicd-workshop-playground' 
 and give the Jenkins instance write access to it. 
 Thus, the s3Upload plugin for Jenkins can deploy to the bucket.
-The playground app is then accessible at 
-https://cicd-workshop-playground.s3.amazonaws.com/$PATH_WORK_IN_PROGRESS/index.html
+After running Jenkinsfile_deploy the app is accessible at 
+https://cicd-workshop-playground.s3.amazonaws.com/$GITHUB_USERNAME/index.html
 
 # The tools
 ## Github Actions
