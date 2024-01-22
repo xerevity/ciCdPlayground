@@ -5,11 +5,18 @@ pipeline {
     }
 
     stages {
+        stage('install') {
+            steps {
+                sh 'yarn'
+            }
+        }
+
         stage('build') {
             steps {
                 sh 'yarn build'
             }
         }
+
         stage('deploy') {
             steps {
                 s3Upload consoleLogLevel: 'INFO', 
