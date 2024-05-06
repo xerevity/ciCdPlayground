@@ -18,6 +18,13 @@ Thus, the s3Upload plugin for Jenkins can deploy to the bucket.
 After running Jenkinsfile_deploy the app is accessible at 
 https://cicd-workshop-playground.s3.amazonaws.com/$GITHUB_USERNAME/index.html
 
+Here is some [nushell](www.nushell.sh) magic to open all deployed instances of the artefact:
+```
+http get https://cicd-workshop-playground.s3.eu-central-1.amazonaws.com | get content.content | flatten | where tag == Key | get content | flatten | get content | split column '/' | get column1 | uniq | each {|username| $"https://cicd-workshop-playground.s3.eu-central-1.amazonaws.com/($username)/index.html"} | each {|url| ^open $url}
+
+```
+`open` is the macOS CLI command to open a URL, on Linux replace it with the command for the browse you want to use. (You don't need the `^` if the command does not collide with a nushell build-in.) 
+
 # The tools
 ## Github Actions
 Running out of the box on, well, Github, see `.github`.
